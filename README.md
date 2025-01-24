@@ -47,3 +47,21 @@ pnpm run dev
 - [ ] Retrieve articles from the database and display them on the admin page
 - [ ] Create "new" button to open a modal for creating a new article
 - [ ] Use Shadcn form (react-hook-form) for creating a new article, make this a components so we can reuse it as edit form
+- [ ] Use react-dropzone for uploading images?
+
+Articles:
+
+Schema:
+
+- Title
+- Image - Store in DB as a Blob to avoid storage
+- Content - HTML string
+- Published By (User) - Should this be hardcoded to "Broadsheet" for now? Designs have an avatar, name and role.
+- CreatedAt
+- UpdatedAt
+
+- [ ] Create a new article
+- [ ] Get all articles
+- [ ] Get a single article
+- [ ] Update an article
+- [ ] Delete an article
