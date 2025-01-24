@@ -5,12 +5,13 @@ Created using the [T3 Stack](https://create.t3.gg/)
 ## Tech used
 
 - [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
+- [React](https://reactjs.org)
+- [TypeScript](https://typescriptlang.org)
 - [Drizzle](https://orm.drizzle.team)
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
 - [Shadcn/UI](https://ui.shadcn.com)
+- [Tiptap](https://tiptap.dev)
 
 # Running the project
 
