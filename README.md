@@ -37,28 +37,34 @@ pnpm run dev
 
 - [x] Create T3 Stack project
 - [x] Add Shadcn/UI
-- [x] Deploy to Vercel
-- [ ] Follow the [Shadcn minimal Tiptap](https://github.com/Aslam97/shadcn-minimal-tiptap) to add Tiptap for rich text editing
+- [x] Deploy to Vercelshadcn-minimal-tiptap) to add Tiptap for rich text editing
 - [x] Add dependencies for Tiptap
 - [x] Add shadcn/ui components for Tiptap
 - [x] Create admin route for managing articles
+- [ ] Add broadsheet admin user to GitHub repo
 - [ ] Create tRPC routes for CRUD operations on articles
 - [ ] Create Drizzle Schema for articles
 - [ ] Retrieve articles from the database and display them on the admin page
 - [ ] Create "new" button to open a modal for creating a new article
+- [ ] Follow the [Shadcn minimal Tiptap](https://github.com/Aslam97/
 - [ ] Use Shadcn form (react-hook-form) for creating a new article, make this a components so we can reuse it as edit form
 - [ ] Use react-dropzone for uploading images?
+- [ ] Bomb all t3 stack initial code
+- [ ] Create articles page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
+- [ ] Create article page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
 
-Articles:
+## Articles
 
-Schema:
+### Schema
 
 - Title
 - Image - Store in DB as a Blob to avoid storage
 - Content - HTML string
-- Published By (User) - Should this be hardcoded to "Broadsheet" for now? Designs have an avatar, name and role.
+- Published By (User) - Should this be hardcoded to "Broadsheet" for now? Designs have an avatar, name and role. Probably need to create a user table.
 - CreatedAt
 - UpdatedAt
+
+### tRPC Routes
 
 - [ ] Create a new article
 - [ ] Get all articles
