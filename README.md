@@ -36,4 +36,5 @@ pnpm run dev
 
 - [x] Create T3 Stack project
 - [x] Add Shadcn/UI
-- [ ] Deploy to Vercel
+- [x] Deploy to Vercel
+- [ ] Add Tiptap for rich text editing (use Lightweight [Shadcn minimal Tiptap](https://github.com/Aslam97/shadcn-minimal-tiptap))
