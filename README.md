@@ -15,23 +15,58 @@ Created using the [T3 Stack](https://create.t3.gg/)
 
 # Running the project
 
-Start the database in Docker
+Open Docker Desktop and run the following command to start the database:
 
 ```bash
 ./start-database.sh
 ```
 
-Update the database schema
+Update the database schema:
 
 ```bash
 pnpm run db:push
 ```
 
-Run the project
+Run the project in development mode:
 
 ```bash
 pnpm run dev
 ```
+
+## Articles
+
+Since I am using tRPC, I will not be using HTTP routes. I will be using tRPC routes:
+
+- GET /api/articles - Retrieve the list of articles. - This will be /api/article.getAll
+- GET /api/articles/:id - Retrieve a specific article by ID. - This will be /api/article.getById
+- POST /api/articles - Create a new article. - This will be /api/article.create
+- PUT /api/articles/:id - Edit an existing article. - This will be /api/article.update
+- DELETE /api/articles/:id - Delete an article. - This will be /api/article.delete
+
+### Schema
+
+**Article**
+
+- title - String
+- image - String
+- content - String
+- createdAt - Date
+- updatedAt - Date
+- userId - Foreign key to user table
+
+**User**
+
+- name - String
+- avatar - String (URL)
+- role - String
+
+### tRPC Routes
+
+- [x] Create a new article
+- [x] Get all articles
+- [x] Update an article
+- [x] Delete an article
+- [ ] Get a single article
 
 # TODO
 
@@ -54,44 +89,10 @@ pnpm run dev
 - [x] Create edit article component - reuse the article form component
 - [x] Add a dropdown to select the author of the article
 - [x] Add Montserrat as default font
-- [ ] Bomb all t3 stack initial code
+- [x] Bomb all t3 stack initial code
 - [ ] Create articles page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
 - [ ] Create article page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
+- [ ] Implement rendering strategies for pages
 - [ ] Add a seed script to populate the database with several users and articles
 - [ ] Add favicon
 - [ ] Add broadsheet user to GitHub repo for review (broadsheet-dev)
-
-## Articles
-
-Since I am using tRPC, I will not be using HTTP routes. I will be using a tRPC routes which are functions.
-
-- GET /api/articles - Retrieve the list of articles. - This will be /api/article.getAll
-- GET /api/articles/:id - Retrieve a specific article by ID. - This will be /api/article.getById
-- POST /api/articles - Create a new article. - This will be /api/article.create
-- PUT /api/articles/:id - Edit an existing article. - This will be /api/article.update
-- DELETE /api/articles/:id - Delete an article. - This will be /api/article.delete
-
-### Schema
-
-**Article**
-
-- title - String
-- image - String
-- content - String
-- createdAt - Date
-- updatedAt - Date
-- userId - Foreign key to user table
-
-**User**
-
-- name - String
-- avatar - String
-- role - String
-
-### tRPC Routes
-
-- [x] Create a new article
-- [x] Get all articles
-- [x] Update an article
-- [x] Delete an article
-- [ ] Get a single article
