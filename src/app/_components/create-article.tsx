@@ -44,7 +44,7 @@ export default function CreateArticle() {
           <DialogTitle>Create Article</DialogTitle>
           <DialogDescription>Create a new article.</DialogDescription>
         </DialogHeader>
-        <ArticleForm onSubmit={mutate} />
+        <ArticleForm onSubmit={mutate} isSubmitting={isPending} />
       </DialogContent>
     </Dialog>
   );

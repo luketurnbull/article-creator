@@ -16,11 +16,28 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
+const isValidImagePath = (path: string) => {
+  // Check if it's a valid URL
+  try {
+    new URL(path);
+    return true;
+  } catch {
+    // Check if it's a valid local path format
+    return /^\/[a-zA-Z0-9\-\_\/]+\.(jpg|jpeg|png|gif|webp)$/i.test(path);
+  }
+};
+
 // Form validation schema
 const formSchema = z.object({
-  title: z.string().min(1, "Title is required"),
-  content: z.string().min(1, "Content is required"),
-  image: z.string().min(1, "Image URL is required"),
+  title: z.string().min(5, "Title must be at least 5 characters"),
+  content: z.string().min(100, "Content must be at least 100 characters"),
+  image: z
+    .string()
+    .min(1, "Image URL is required")
+    .refine(
+      (value) => isValidImagePath(value),
+      "Please enter a valid image URL or path (e.g., https://example.com/image.jpg or /images/photo.png)",
+    ),
   userId: z.number(),
 });
 
@@ -37,7 +54,6 @@ export default function ArticleForm({
   onSubmit,
   isSubmitting = false,
 }: ArticleFormProps) {
-  // Initialize form with react-hook-form
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
