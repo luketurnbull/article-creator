@@ -48,7 +48,10 @@ pnpm run dev
 - [x] Create "new" button to open a modal for creating a new article
 - [x] Follow the [Shadcn minimal Tiptap](https://github.com/Aslam97/
 - [x] Use Shadcn form (react-hook-form) for creating a new article, make this a components so we can reuse it as edit form
-- [ ] Use react-dropzone for uploading images?
+- [x] Add validation to the form
+- [x] Add a delete button to the article table
+- [x] Add edit button to the article table
+- [x] Create edit article component - reuse the article form component
 - [ ] Bomb all t3 stack initial code
 - [ ] Create articles page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
 - [ ] Create article page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
@@ -56,25 +59,35 @@ pnpm run dev
 
 ## Articles
 
-- GET /api/articles - Retrieve the list of articles.
-- GET /api/articles/:id - Retrieve a specific article by ID.
-- POST /api/articles - Create a new article.
-- PUT /api/articles/:id - Edit an existing article.
-- DELETE /api/articles/:id - Delete an article.
+Since I am using tRPC, I will not be using HTTP routes. I will be using tRPC routes which are functions.
+
+- GET /api/articles - Retrieve the list of articles. - This will be /api/article.getAll
+- GET /api/articles/:id - Retrieve a specific article by ID. - This will be /api/article.getById
+- POST /api/articles - Create a new article. - This will be /api/article.create
+- PUT /api/articles/:id - Edit an existing article. - This will be /api/article.update
+- DELETE /api/articles/:id - Delete an article. - This will be /api/article.delete
 
 ### Schema
 
-- Title
-- Image - Store in DB as a Blob to avoid storage
-- Content - HTML string
-- Published By (User) - Should this be hardcoded to "Broadsheet" for now? Designs have an avatar, name and role. Probably need to create a user table.
-- CreatedAt
-- UpdatedAt
+**Article**
+
+- title - String
+- image - String
+- content - String
+- createdAt - Date
+- updatedAt - Date
+- userId - Foreign key to user table
+
+**User**
+
+- name - String
+- avatar - String
+- role - String
 
 ### tRPC Routes
 
-- [ ] Create a new article
+- [x] Create a new article
 - [ ] Get all articles
 - [ ] Get a single article
 - [ ] Update an article
-- [ ] Delete an article
+- [x] Delete an article

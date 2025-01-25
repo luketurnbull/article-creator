@@ -22,6 +22,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import EditArticle from "./edit-article";
 
 type Article = RouterOutputs["article"]["getAll"][0];
 
@@ -81,7 +82,7 @@ export default function ArticleTable({
               <TableHead>Title</TableHead>
               <TableHead>Author</TableHead>
               <TableHead>Created At</TableHead>
-              <TableHead>Actions</TableHead>
+              <TableHead></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -105,16 +106,19 @@ export default function ArticleTable({
                 <TableCell>
                   {new Date(article.createdAt).toLocaleDateString()}
                 </TableCell>
-                <TableCell>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => handleDelete(article)}
-                    disabled={isDeleting === article.id}
-                  >
-                    <Trash2 className="h-4 w-4 text-destructive" />
-                    <span className="sr-only">Delete article</span>
-                  </Button>
+                <TableCell className="text-right">
+                  <div className="flex justify-end gap-2">
+                    <EditArticle article={article} />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleDelete(article)}
+                      disabled={isDeleting === article.id}
+                    >
+                      <Trash2 className="h-4 w-4 text-destructive" />
+                      <span className="sr-only">Delete article</span>
+                    </Button>
+                  </div>
                 </TableCell>
               </TableRow>
             ))}
