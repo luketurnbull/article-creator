@@ -34,7 +34,7 @@ export default async function AdminPage() {
                 New Article
               </Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="max-w-3xl">
               <DialogHeader>
                 <DialogTitle>Create Article</DialogTitle>
               </DialogHeader>
