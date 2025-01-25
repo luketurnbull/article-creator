@@ -5,11 +5,10 @@ import { HydrateClient } from "@/trpc/server";
 export default async function ArticlePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const article = await api.article.getBySlug({
-    slug: params.slug,
-  });
+  const slug = (await params).slug;
+  const article = await api.article.getBySlug({ slug });
 
   if (!article) {
     notFound();
