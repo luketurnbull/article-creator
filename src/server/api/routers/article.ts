@@ -75,10 +75,14 @@ export const articleRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      const data = { ...input.data };
-      if (data.title) {
-        data.slug = generateSlug(data.title);
-      }
+      const data = {
+        title: input.data.title,
+        content: input.data.content,
+        image: input.data.image,
+        userId: input.data.userId,
+        slug: generateSlug(input.data.title ?? ""),
+      };
+
       const article = await ctx.db
         .update(articles)
         .set(data)
