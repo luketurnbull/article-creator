@@ -41,6 +41,7 @@ pnpm run dev
 - [x] Add dependencies for Tiptap
 - [x] Add shadcn/ui components for Tiptap
 - [x] Create admin route for managing articles
+- [x] Change tRPC routes to API routes to match the API routes in the designs
 - [ ] Create tRPC routes for CRUD operations on articles
 - [ ] Create Drizzle Schema for articles
 - [ ] Retrieve articles from the database and display them on the admin page
