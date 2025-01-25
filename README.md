@@ -41,7 +41,6 @@ pnpm run dev
 - [x] Add dependencies for Tiptap
 - [x] Add shadcn/ui components for Tiptap
 - [x] Create admin route for managing articles
-- [ ] Add broadsheet admin user to GitHub repo
 - [ ] Create tRPC routes for CRUD operations on articles
 - [ ] Create Drizzle Schema for articles
 - [ ] Retrieve articles from the database and display them on the admin page
@@ -52,8 +51,15 @@ pnpm run dev
 - [ ] Bomb all t3 stack initial code
 - [ ] Create articles page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
 - [ ] Create article page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
+- [ ] Add broadsheet user to GitHub repo for review (broadsheet-dev)
 
 ## Articles
+
+- GET /api/articles - Retrieve the list of articles.
+- GET /api/articles/:id - Retrieve a specific article by ID.
+- POST /api/articles - Create a new article.
+- PUT /api/articles/:id - Edit an existing article.
+- DELETE /api/articles/:id - Delete an article.
 
 ### Schema
 
