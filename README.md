@@ -91,12 +91,17 @@ Since I am using tRPC, I will not be using HTTP routes. I will be using tRPC rou
 - [x] Add Montserrat as default font
 - [x] Bomb all t3 stack initial code
 
-- [ ] Create articles page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
+- [x] Create articles page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
 - [x] Add shadcn/ui avatar component
 
 - [ ] Create article page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
+- [ ] Create route using slugs
 
 - [ ] Implement rendering strategies for pages
+- [ ] Add broadsheet user to GitHub repo for review (broadsheet-dev)
+
+## Would be nice
+
+- [ ] Design has "Load More" - Add lazy loading to the articles page?
 - [ ] Add a seed script to populate the database with several users and articles
 - [ ] Add favicon
-- [ ] Add broadsheet user to GitHub repo for review (broadsheet-dev)
