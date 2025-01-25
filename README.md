@@ -62,6 +62,22 @@ Since I am using tRPC, I will not be using HTTP routes. I will be using tRPC rou
 
 ## Implementation Details
 
+### Server-Side Rendering (SSR)
+
+The article view page (`/src/app/[slug]/page.tsx`) uses Server-Side Rendering. This means:
+
+- The page is rendered on the server for each request
+- Content is always fresh and up-to-date
+- SEO friendly as search engines receive fully rendered HTML
+- Better for dynamic, frequently updated content
+
+Benefits of SSR for article pages:
+
+- Always shows the latest version of the article
+- Better for articles that might be updated frequently
+- Improved SEO as content is generated server-side
+- Handles dynamic data well (e.g., user comments in future)
+
 ### Incremental Static Regeneration (ISR)
 
 The home page (`/src/app/page.tsx`) implements ISR with a 60-second revalidation period. This means:
@@ -71,12 +87,26 @@ The home page (`/src/app/page.tsx`) implements ISR with a 60-second revalidation
 - Every 60 seconds, the page can be regenerated in the background
 - Users always see a static page (fast loading) with relatively fresh data
 
-Benefits:
+Benefits of ISR for the home page:
 
 - Improved performance through static generation
 - Reduced database load
 - Fresh data through periodic revalidation
 - Better SEO as content is available at build time
+
+### Rendering Strategy Rationale
+
+The application uses a hybrid approach to page rendering:
+
+1. **Home Page (ISR)**: Since the articles list doesn't need real-time updates, ISR provides a good balance between performance and content freshness. The 60-second revalidation ensures users see relatively recent content while maintaining good performance.
+
+2. **Article Pages (SSR)**: Individual article pages use SSR to ensure users always see the most up-to-date version of an article. This is important for:
+   - Content accuracy
+   - Real-time updates
+   - Future features like comments or reactions
+   - SEO optimization
+
+This hybrid approach provides the best balance of performance and content freshness for different types of pages.
 
 ### tRPC Routes
 
@@ -117,8 +147,8 @@ Benefits:
 
 - [x] Create route using slugs
 - [x] Added styling to the article page
-- [ ] Incremental Static Regeneration (ISR) for the Home Page
-- [ ] Server-Side Rendering (SSR) for the Article View Page
+- [x] Incremental Static Regeneration (ISR) for the Home Page
+- [x] Server-Side Rendering (SSR) for the Article View Page
 - [ ] Minutes read logic
 - [ ] Add a seed script to populate the database with several users and articles
 - [ ] Documentation - Steps to set up the application.
