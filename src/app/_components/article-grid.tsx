@@ -1,21 +1,22 @@
 "use client";
 
-import { api } from "@/trpc/react";
+import { type RouterOutputs } from "@/trpc/react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 import Image from "next/image";
 import { useMemo } from "react";
 
-// Helper function to convert HTML to plain text
 function htmlToPlainText(html: string) {
   const doc = new DOMParser().parseFromString(html, "text/html");
   return doc.body.textContent ?? "";
 }
 
-export function ArticleGrid() {
-  const { data: articles } = api.article.getAll.useQuery();
-
+export default function ArticleGrid({
+  articles,
+}: {
+  articles: RouterOutputs["article"]["getAll"];
+}) {
   const getPlainText = useMemo(() => {
     return (html: string) => {
       return htmlToPlainText(html);

@@ -60,13 +60,31 @@ Since I am using tRPC, I will not be using HTTP routes. I will be using tRPC rou
 - avatar - String (URL)
 - role - String
 
+## Implementation Details
+
+### Incremental Static Regeneration (ISR)
+
+The home page (`/src/app/page.tsx`) implements ISR with a 60-second revalidation period. This means:
+
+- The page is statically generated at build time
+- The page is served from cache for subsequent requests
+- Every 60 seconds, the page can be regenerated in the background
+- Users always see a static page (fast loading) with relatively fresh data
+
+Benefits:
+
+- Improved performance through static generation
+- Reduced database load
+- Fresh data through periodic revalidation
+- Better SEO as content is available at build time
+
 ### tRPC Routes
 
 - [x] Create a new article
 - [x] Get all articles
 - [x] Update an article
 - [x] Delete an article
-- [ ] Get a single article
+- [x] Get a single article
 
 # TODO
 
@@ -99,12 +117,19 @@ Since I am using tRPC, I will not be using HTTP routes. I will be using tRPC rou
 
 - [x] Create route using slugs
 - [x] Added styling to the article page
+- [ ] Incremental Static Regeneration (ISR) for the Home Page
+- [ ] Server-Side Rendering (SSR) for the Article View Page
 - [ ] Minutes read logic
-- [ ] Implement rendering strategies for pages
 - [ ] Add a seed script to populate the database with several users and articles
+- [ ] Documentation - Steps to set up the application.
+- [ ] Documentation - How to run the application locally.
+- [ ] Documentation - Explanation of where SSR and ISR are implemented and why.
+- [ ] API documentation.
 - [ ] Add broadsheet user to GitHub repo for review (broadsheet-dev)
+- [ ] Email Broadsheet for review
 
 ## Would be nice
 
+- [ ] Refine SEO
 - [ ] Design has "Load More" - Add lazy loading to the articles page?
 - [ ] Add favicon

@@ -1,12 +1,14 @@
-import { HydrateClient } from "@/trpc/server";
-import { ArticleGrid } from "./_components/article-grid";
+import { api } from "@/trpc/server";
+import ArticleGrid from "./_components/article-grid";
+
+export const revalidate = 60;
 
 export default async function Home() {
+  const articles = await api.article.getAll();
+
   return (
-    <HydrateClient>
-      <main className="min-h-screen">
-        <ArticleGrid />
-      </main>
-    </HydrateClient>
+    <main className="min-h-screen">
+      <ArticleGrid articles={articles} />
+    </main>
   );
 }
