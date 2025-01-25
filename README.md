@@ -90,8 +90,12 @@ Since I am using tRPC, I will not be using HTTP routes. I will be using tRPC rou
 - [x] Add a dropdown to select the author of the article
 - [x] Add Montserrat as default font
 - [x] Bomb all t3 stack initial code
+
 - [ ] Create articles page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
+- [x] Add shadcn/ui avatar component
+
 - [ ] Create article page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
+
 - [ ] Implement rendering strategies for pages
 - [ ] Add a seed script to populate the database with several users and articles
 - [ ] Add favicon
