@@ -149,11 +149,11 @@ This hybrid approach provides the best balance of performance and content freshn
 - [x] Added styling to the article page
 - [x] Incremental Static Regeneration (ISR) for the Home Page
 - [x] Server-Side Rendering (SSR) for the Article View Page
-- [ ] Minutes read logic
+- [x] Minutes read logic
 - [ ] Add a seed script to populate the database with several users and articles
 - [ ] Documentation - Steps to set up the application.
 - [ ] Documentation - How to run the application locally.
-- [ ] Documentation - Explanation of where SSR and ISR are implemented and why.
+- [x] Documentation - Explanation of where SSR and ISR are implemented and why.
 - [ ] API documentation.
 - [ ] Add broadsheet user to GitHub repo for review (broadsheet-dev)
 - [ ] Email Broadsheet for review
@@ -163,3 +163,4 @@ This hybrid approach provides the best balance of performance and content freshn
 - [ ] Refine SEO
 - [ ] Design has "Load More" - Add lazy loading to the articles page?
 - [ ] Add favicon
+- [ ] Create a 404 "not found" page

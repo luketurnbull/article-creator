@@ -1,6 +1,7 @@
 import { api } from "@/trpc/server";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import { calculateReadingTime } from "@/lib/utils";
 
 export default async function ArticlePage({
   params,
@@ -14,12 +15,17 @@ export default async function ArticlePage({
     notFound();
   }
 
+  const readingTime = calculateReadingTime(article.content);
+  const plural = readingTime > 1 ? "mins" : "min";
+
   return (
     <main className="container mx-auto px-4 py-8">
       <article className="mx-auto max-w-3xl">
         <header className="mb-8">
           <h1 className="mb-4 text-4xl font-bold">{article.title}</h1>
-          <div className="mb-2 text-sm md:mb-8">4 Mins Read</div>
+          <div className="mb-2 text-sm md:mb-8">
+            {readingTime} {plural} read
+          </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               {article.user.avatar && (

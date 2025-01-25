@@ -23,3 +23,20 @@ export function stripHtml(html: string) {
     .replace(/&gt;/g, ">") // Replace &gt; with >
     .trim(); // Remove leading/trailing whitespace
 }
+
+export function calculateReadingTime(
+  content: string,
+  wordsPerMinute = 200,
+): number {
+  // Remove HTML tags and trim whitespace
+  const plainText = content.replace(/<[^>]*>/g, "");
+
+  // Count words (split by whitespace)
+  const wordCount = plainText.trim().split(/\s+/).length;
+
+  // Calculate reading time in minutes
+  const readingTime = Math.ceil(wordCount / wordsPerMinute);
+
+  // Return at least 1 minute
+  return Math.max(1, readingTime);
+}
