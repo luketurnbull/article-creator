@@ -97,13 +97,14 @@ Since I am using tRPC, I will not be using HTTP routes. I will be using tRPC rou
 
 ## Article page [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
 
-- [ ] Create route using slugs
-
+- [x] Create route using slugs
+- [x] Added styling to the article page
+- [ ] Minutes read logic
 - [ ] Implement rendering strategies for pages
+- [ ] Add a seed script to populate the database with several users and articles
 - [ ] Add broadsheet user to GitHub repo for review (broadsheet-dev)
 
 ## Would be nice
 
 - [ ] Design has "Load More" - Add lazy loading to the articles page?
-- [ ] Add a seed script to populate the database with several users and articles
 - [ ] Add favicon
