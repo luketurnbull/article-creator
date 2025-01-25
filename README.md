@@ -42,8 +42,8 @@ pnpm run dev
 - [x] Add shadcn/ui components for Tiptap
 - [x] Create admin route for managing articles
 - [x] Change tRPC routes to API routes to match the API routes in the designs
-- [ ] Create tRPC routes for CRUD operations on articles
-- [ ] Create Drizzle Schema for articles
+- [x] Create tRPC routes for CRUD operations on articles
+- [x] Create Drizzle Schema for articles
 - [ ] Retrieve articles from the database and display them on the admin page
 - [ ] Create "new" button to open a modal for creating a new article
 - [ ] Follow the [Shadcn minimal Tiptap](https://github.com/Aslam97/
