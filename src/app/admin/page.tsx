@@ -7,6 +7,15 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
+import { PlusCircle } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default async function AdminPage() {
   const articles = await api.article.getAll();
@@ -15,6 +24,19 @@ export default async function AdminPage() {
     <div className="container mx-auto py-10">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold tracking-tight">Articles</h1>
+        <Dialog>
+          <DialogTrigger>
+            <Button>
+              <PlusCircle className="mr-2 h-4 w-4" />
+              New Article
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Create Article</DialogTitle>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
       </div>
 
       <div className="mt-6 rounded-md border">
