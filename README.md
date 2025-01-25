@@ -44,7 +44,7 @@ pnpm run dev
 - [x] Change tRPC routes to API routes to match the API routes in the designs
 - [x] Create tRPC routes for CRUD operations on articles
 - [x] Create Drizzle Schema for articles
-- [ ] Retrieve articles from the database and display them on the admin page
+- [x] Retrieve articles from the database and display them on the admin page
 - [ ] Create "new" button to open a modal for creating a new article
 - [ ] Follow the [Shadcn minimal Tiptap](https://github.com/Aslam97/
 - [ ] Use Shadcn form (react-hook-form) for creating a new article, make this a components so we can reuse it as edit form
