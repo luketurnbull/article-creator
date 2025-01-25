@@ -46,8 +46,8 @@ pnpm run dev
 - [x] Create Drizzle Schema for articles
 - [x] Retrieve articles from the database and display them on the admin page
 - [x] Create "new" button to open a modal for creating a new article
-- [ ] Follow the [Shadcn minimal Tiptap](https://github.com/Aslam97/
-- [ ] Use Shadcn form (react-hook-form) for creating a new article, make this a components so we can reuse it as edit form
+- [x] Follow the [Shadcn minimal Tiptap](https://github.com/Aslam97/
+- [x] Use Shadcn form (react-hook-form) for creating a new article, make this a components so we can reuse it as edit form
 - [ ] Use react-dropzone for uploading images?
 - [ ] Bomb all t3 stack initial code
 - [ ] Create articles page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
