@@ -1,14 +1,8 @@
 import { api } from "@/trpc/server";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import CreateArticle from "../_components/create-article";
+import { HydrateClient } from "@/trpc/server";
+import ArticleTable from "../_components/article-table";
 
 export default async function AdminPage() {
   const articles = await api.article.getAll();
@@ -21,33 +15,9 @@ export default async function AdminPage() {
           <CreateArticle />
         </div>
 
-        <div className="mt-6 rounded-md border">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Title</TableHead>
-                <TableHead>Author</TableHead>
-                <TableHead>Created At</TableHead>
-                <TableHead>Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {articles.map((article) => (
-                <TableRow key={article.id}>
-                  <TableCell className="font-medium">{article.title}</TableCell>
-                  <TableCell>{article.user.name}</TableCell>
-                  <TableCell>
-                    {new Date(article.createdAt).toLocaleDateString()}
-                  </TableCell>
-                  <TableCell>
-                    {/* We'll add edit/delete buttons here later */}
-                    Actions
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
+        <HydrateClient>
+          <ArticleTable articles={articles} />
+        </HydrateClient>
       </div>
     </TooltipProvider>
   );
