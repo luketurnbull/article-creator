@@ -15,6 +15,14 @@ import { type Content } from "@tiptap/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { api } from "@/trpc/react";
 
 const isValidImagePath = (path: string) => {
   // Check if it's a valid URL
@@ -38,7 +46,10 @@ const formSchema = z.object({
       (value) => isValidImagePath(value),
       "Please enter a valid image URL or path (e.g., https://example.com/image.jpg or /images/photo.png)",
     ),
-  userId: z.number(),
+  userId: z
+    .string()
+    .min(1, "Please select an author")
+    .transform((val) => parseInt(val, 10)),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -54,13 +65,16 @@ export default function ArticleForm({
   onSubmit,
   isSubmitting = false,
 }: ArticleFormProps) {
+  // Fetch users for the dropdown
+  const { data: users } = api.user.getAll.useQuery();
+
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: defaultValues?.title ?? "",
       content: defaultValues?.content ?? "",
       image: defaultValues?.image ?? "",
-      userId: defaultValues?.userId ?? 1, // Default userId, adjust as needed
+      userId: defaultValues?.userId ?? undefined,
     },
   });
 
@@ -90,6 +104,35 @@ export default function ArticleForm({
               <FormControl>
                 <Input placeholder="Image URL..." {...field} />
               </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="userId"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Author</FormLabel>
+              <Select
+                onValueChange={field.onChange}
+                defaultValue={field.value?.toString()}
+                value={field.value?.toString()}
+              >
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select an author" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {users?.map((user) => (
+                    <SelectItem key={user.id} value={user.id.toString()}>
+                      {user.name} ({user.role})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               <FormMessage />
             </FormItem>
           )}

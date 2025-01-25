@@ -52,11 +52,13 @@ pnpm run dev
 - [x] Add a delete button to the article table
 - [x] Add edit button to the article table
 - [x] Create edit article component - reuse the article form component
-- [ ] Add a dropdown to select the author of the article
+- [x] Add a dropdown to select the author of the article
+- [ ] Add Montserrat as default font
 - [ ] Bomb all t3 stack initial code
 - [ ] Create articles page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
 - [ ] Create article page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
 - [ ] Add a seed script to populate the database with several users and articles
+- [ ] Add favicon
 - [ ] Add broadsheet user to GitHub repo for review (broadsheet-dev)
 
 ## Articles
