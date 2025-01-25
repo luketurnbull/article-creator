@@ -1,14 +1,11 @@
 import { HydrateClient } from "@/trpc/server";
+import { ArticleGrid } from "./_components/article-grid";
 
 export default async function Home() {
   return (
     <HydrateClient>
-      <main className="flex min-h-screen flex-col items-center justify-center">
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-          <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-            Broadsheet task
-          </h1>
-        </div>
+      <main className="min-h-screen">
+        <ArticleGrid />
       </main>
     </HydrateClient>
   );
