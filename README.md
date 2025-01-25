@@ -52,14 +52,16 @@ pnpm run dev
 - [x] Add a delete button to the article table
 - [x] Add edit button to the article table
 - [x] Create edit article component - reuse the article form component
+- [ ] Add a dropdown to select the author of the article
 - [ ] Bomb all t3 stack initial code
 - [ ] Create articles page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
 - [ ] Create article page matching designs [Figma](<https://www.figma.com/design/PKspHMoAzVZ3GZLH6TVn3f/Fullstack-Developer-(Frontend)-Technical-Task?node-id=0-1&p=f&t=lMXAT3d2vsejAdoh-0>)
+- [ ] Add a seed script to populate the database with several users and articles
 - [ ] Add broadsheet user to GitHub repo for review (broadsheet-dev)
 
 ## Articles
 
-Since I am using tRPC, I will not be using HTTP routes. I will be using tRPC routes which are functions.
+Since I am using tRPC, I will not be using HTTP routes. I will be using a tRPC routes which are functions.
 
 - GET /api/articles - Retrieve the list of articles. - This will be /api/article.getAll
 - GET /api/articles/:id - Retrieve a specific article by ID. - This will be /api/article.getById
@@ -87,7 +89,7 @@ Since I am using tRPC, I will not be using HTTP routes. I will be using tRPC rou
 ### tRPC Routes
 
 - [x] Create a new article
-- [ ] Get all articles
-- [ ] Get a single article
-- [ ] Update an article
+- [x] Get all articles
+- [x] Update an article
 - [x] Delete an article
+- [ ] Get a single article

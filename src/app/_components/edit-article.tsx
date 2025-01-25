@@ -42,10 +42,10 @@ export default function EditArticle({ article }: { article: Article }) {
           <span className="sr-only">Edit article</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-3xl" aria-describedby="create-article">
+      <DialogContent className="max-w-3xl" aria-describedby="edit-article">
         <DialogHeader>
-          <DialogTitle>Create Article</DialogTitle>
-          <DialogDescription>Create a new article.</DialogDescription>
+          <DialogTitle>Edit Article</DialogTitle>
+          <DialogDescription>Edit an article.</DialogDescription>
         </DialogHeader>
         <ArticleForm
           defaultValues={article}
