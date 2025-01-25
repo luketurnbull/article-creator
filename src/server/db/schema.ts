@@ -29,6 +29,7 @@ export const articles = createTable(
   {
     id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
     title: varchar("title", { length: 256 }).notNull(),
+    slug: varchar("slug", { length: 256 }).notNull().unique(),
     content: varchar("content", { length: 10000 }).notNull(), // HTML content
     image: text("image").notNull(), // Base64 encoded image blob
     userId: integer("user_id")
@@ -43,6 +44,7 @@ export const articles = createTable(
   },
   (article) => ({
     titleIndex: index("title_idx").on(article.title),
+    slugIndex: index("slug_idx").on(article.slug),
   }),
 );
 

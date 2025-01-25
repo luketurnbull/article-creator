@@ -39,7 +39,10 @@ export default function CreateArticle() {
           Create Article
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-3xl" aria-describedby="create-article">
+      <DialogContent
+        className="max-h-[90vh] max-w-3xl overflow-y-auto"
+        aria-describedby="create-article"
+      >
         <DialogHeader>
           <DialogTitle>Create Article</DialogTitle>
           <DialogDescription>Create a new article.</DialogDescription>

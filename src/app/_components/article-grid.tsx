@@ -18,11 +18,7 @@ export function ArticleGrid() {
 
   const getPlainText = useMemo(() => {
     return (html: string) => {
-      // For client-side only
-      if (typeof window !== "undefined") {
-        return htmlToPlainText(html);
-      }
-      return html;
+      return htmlToPlainText(html);
     };
   }, []);
 
@@ -42,7 +38,7 @@ export function ArticleGrid() {
       <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
         {articles.map((article) => (
           <Link
-            href={`/articles/${article.id}`}
+            href={`/${article.slug}`}
             key={article.id}
             className="group flex flex-col gap-4"
           >

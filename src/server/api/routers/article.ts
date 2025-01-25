@@ -2,6 +2,7 @@ import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import { articles } from "@/server/db/schema";
 import { eq } from "drizzle-orm";
+import { generateSlug } from "@/lib/utils";
 
 // Input validation schema for creating/updating articles
 const articleSchema = z.object({
@@ -37,12 +38,27 @@ export const articleRouter = createTRPCRouter({
       return article;
     }),
 
+  // Get article by slug
+  getBySlug: publicProcedure
+    .input(z.object({ slug: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const article = await ctx.db.query.articles.findFirst({
+        where: eq(articles.slug, input.slug),
+        with: {
+          user: true,
+        },
+      });
+      return article;
+    }),
+
   // Create new article
   create: publicProcedure
     .input(articleSchema)
     .mutation(async ({ ctx, input }) => {
+      const slug = generateSlug(input.title);
       const article = await ctx.db.insert(articles).values({
         title: input.title,
+        slug,
         content: input.content,
         image: input.image,
         userId: input.userId,
@@ -59,9 +75,13 @@ export const articleRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
+      const data = { ...input.data };
+      if (data.title) {
+        data.slug = generateSlug(data.title);
+      }
       const article = await ctx.db
         .update(articles)
-        .set(input.data)
+        .set(data)
         .where(eq(articles.id, input.id));
       return article;
     }),
