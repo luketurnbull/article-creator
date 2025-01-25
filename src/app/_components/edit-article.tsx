@@ -42,7 +42,10 @@ export default function EditArticle({ article }: { article: Article }) {
           <span className="sr-only">Edit article</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-3xl" aria-describedby="edit-article">
+      <DialogContent
+        className="max-h-[90vh] max-w-3xl overflow-y-auto"
+        aria-describedby="edit-article"
+      >
         <DialogHeader>
           <DialogTitle>Edit Article</DialogTitle>
           <DialogDescription>Edit an article.</DialogDescription>
