@@ -55,7 +55,7 @@ export default async function Home() {
                 </span>
               </div>
               <div>
-                <h2 className="text-xl font-medium md:text-2xl">
+                <h2 className="text-xl font-medium group-hover:underline md:text-2xl">
                   {article.title}
                 </h2>
                 <p className="mt-2 line-clamp-3 text-sm font-normal md:text-base">
