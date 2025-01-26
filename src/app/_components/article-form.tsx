@@ -46,16 +46,18 @@ const formSchema = z.object({
       (value) => isValidImagePath(value),
       "Please enter a valid image URL or path (e.g., https://example.com/image.jpg or /images/photo.png)",
     ),
-  userId: z
-    .string()
-    .min(1, "Please select an author")
-    .transform((val) => parseInt(val, 10)),
+  userId: z.string().min(1, "Please select an author"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
 interface ArticleFormProps {
-  defaultValues?: Partial<FormValues>;
+  defaultValues?: {
+    title?: string;
+    content?: string;
+    image?: string;
+    userId?: number;
+  };
   onSubmit: (values: FormValues) => void;
   isSubmitting?: boolean;
 }
@@ -74,13 +76,19 @@ export default function ArticleForm({
       title: defaultValues?.title ?? "",
       content: defaultValues?.content ?? "",
       image: defaultValues?.image ?? "",
-      userId: defaultValues?.userId ?? undefined,
+      userId: defaultValues?.userId ? String(defaultValues.userId) : "",
     },
   });
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form
+        onSubmit={form.handleSubmit((data) => {
+          const transformedData = formSchema.parse(data);
+          onSubmit(transformedData);
+        })}
+        className="space-y-6"
+      >
         <FormField
           control={form.control}
           name="title"

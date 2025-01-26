@@ -9,7 +9,9 @@ const articleSchema = z.object({
   title: z.string().min(1),
   content: z.string().min(1),
   image: z.string().min(1),
-  userId: z.number(),
+  userId: z
+    .union([z.string(), z.number()])
+    .transform((val) => (typeof val === "string" ? parseInt(val, 10) : val)),
 });
 
 export const articleRouter = createTRPCRouter({
