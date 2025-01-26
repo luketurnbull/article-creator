@@ -2,6 +2,12 @@
 
 Deployed to https://broadsheet-task.vercel.app/
 
+## Admin page
+
+Located at /admin, for example:
+
+https://broadsheet-task.vercel.app/admin
+
 ## Tech used
 
 Created using the [T3 Stack](https://create.t3.gg/)
