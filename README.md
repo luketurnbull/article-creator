@@ -1,8 +1,10 @@
 # Broadsheet Task
 
-Created using the [T3 Stack](https://create.t3.gg/)
+Deployed to https://broadsheet-task.vercel.app/
 
 ## Tech used
+
+Created using the [T3 Stack](https://create.t3.gg/)
 
 - [Next.js](https://nextjs.org)
 - [React](https://reactjs.org)
@@ -27,13 +29,23 @@ Update the database schema:
 pnpm run db:push
 ```
 
-Run the project in development mode:
+## Running the project in development mode
 
 ```bash
 pnpm run dev
 ```
 
-## Articles
+## Running the project in production mode
+
+```bash
+pnpm run build
+```
+
+```bash
+pnpm run start
+```
+
+## Article API Routes
 
 Since I am using tRPC, I will not be using HTTP routes. I will be using tRPC routes:
 
@@ -42,6 +54,10 @@ Since I am using tRPC, I will not be using HTTP routes. I will be using tRPC rou
 - POST /api/articles - Create a new article. - This will be /api/article.create
 - PUT /api/articles/:id - Edit an existing article. - This will be /api/article.update
 - DELETE /api/articles/:id - Delete an article. - This will be /api/article.delete
+
+New routes not in the design:
+
+- GET /api/articles.getBySlug
 
 ### Schema
 
@@ -150,13 +166,12 @@ This hybrid approach provides the best balance of performance and content freshn
 - [x] Incremental Static Regeneration (ISR) for the Home Page
 - [x] Server-Side Rendering (SSR) for the Article View Page
 - [x] Minutes read logic
-- [ ] Add a seed script to populate the database with several users and articles
-- [ ] Documentation - Steps to set up the application.
-- [ ] Documentation - How to run the application locally.
+- [x] Documentation - Steps to set up the application.
+- [x] Documentation - How to run the application locally.
 - [x] Documentation - Explanation of where SSR and ISR are implemented and why.
-- [ ] API documentation.
-- [ ] Add broadsheet user to GitHub repo for review (broadsheet-dev)
-- [ ] Email Broadsheet for review
+- [x] API documentation.
+- [x] Add broadsheet user to GitHub repo for review (broadsheet-dev)
+- [x] Email Broadsheet for review
 
 ## Would be nice
 
